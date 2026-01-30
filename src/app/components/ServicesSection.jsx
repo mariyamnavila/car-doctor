@@ -1,12 +1,12 @@
-import React from 'react';
-import services from '../../../public/services.json';
+import dbConnect, { collectionNamesObj } from '@/lib/dbConnect';
 import Image from 'next/image';
+import Link from 'next/link';
 import { FaArrowRight } from "react-icons/fa";
 const ServicesSection = async () => {
-    // const res = await fetch('/public/services.json')
-    // const data = await res.json()
 
-    console.log(services);
+    const servicesCollection = dbConnect(collectionNamesObj.servicesCollection);
+    const services = await servicesCollection.find({}).toArray();
+
     return (
         <div className='max-w-7xl mx-auto'>
 
@@ -23,7 +23,7 @@ const ServicesSection = async () => {
                                     <p className='text-primary text-xl font-semibold'>Price: ${service.price}</p>
                                 </div>
                                 <div className="card-actions">
-                                    <button className=" text-primary"><FaArrowRight  className='text-xl'/></button>
+                                    <Link href={`/services/${service._id}`} className=" text-primary"><FaArrowRight className='text-xl' /></Link>
                                 </div>
                             </div>
                         </div>
