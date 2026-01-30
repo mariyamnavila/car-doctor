@@ -2,33 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import RegisterForm from "./components/RegisterForm";
 
 export default function Register() {
     return (
         <div className="min-h-screen bg-white">
-            {/* Navbar */}
-            {/* <nav className="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
-                <div className="flex items-center gap-2">
-                    <Image
-                        src="/assets/logo.svg"
-                        alt="Car Doctor"
-                        width={40}
-                        height={40}
-                    />
-                    <span className="font-bold text-lg">Car Doctor</span>
-                </div>
-
-                <ul className="hidden md:flex gap-8 text-sm font-medium text-gray-700">
-                    <li>Order</li>
-                    <li>Order Review</li>
-                    <li>Manage Inventory</li>
-                    <li>
-                        <Link href="/login" className="hover:text-primary">
-                            Login
-                        </Link>
-                    </li>
-                </ul>
-            </nav> */}
 
             {/* Main Section */}
             <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 items-center gap-16 mt-10">
@@ -50,46 +28,8 @@ export default function Register() {
                         <h2 className="text-3xl font-bold text-center mb-8">
                             Sign Up
                         </h2>
-
-                        {/* Form */}
-                        <form className="space-y-5">
-                            <div>
-                                <label className="block mb-1 text-sm font-medium">
-                                    Name
-                                </label>
-                                <input
-                                    type="text"
-                                    placeholder="Your name"
-                                    className="input input-bordered w-full"
-                                />
-                            </div>
-
-                            <div>
-                                <label className="block mb-1 text-sm font-medium">
-                                    Email
-                                </label>
-                                <input
-                                    type="email"
-                                    placeholder="Your email"
-                                    className="input input-bordered w-full"
-                                />
-                            </div>
-
-                            <div>
-                                <label className="block mb-1 text-sm font-medium">
-                                    Confirm Password
-                                </label>
-                                <input
-                                    type="password"
-                                    placeholder="Your password"
-                                    className="input input-bordered w-full"
-                                />
-                            </div>
-
-                            <button className="btn btn-primary w-full mt-2">
-                                Sign Up
-                            </button>
-                        </form>
+                        
+                        <RegisterForm></RegisterForm>
 
                         {/* Social Login */}
                         <div className="mt-8 text-center">
