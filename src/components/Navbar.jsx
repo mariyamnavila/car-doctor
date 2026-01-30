@@ -6,8 +6,7 @@ import React from 'react';
 
 const Navbar = () => {
     const { data: session, status } = useSession()
-
-    console.log(session, status);
+    console.log(session);
 
     const navMenu = () => {
         return (
@@ -32,6 +31,7 @@ const Navbar = () => {
                         status === 'authenticated'
                             ?
                             <>
+                                <Image src={session.user.image} alt="User Avatar" width={32} height={32} className="rounded-full inline-block mr-2" />
                                 <button className="btn btn-outline btn-ghost" onClick={() => signOut({ callbackUrl: "/" })}>Logout</button>
                             </>
                             :
@@ -72,6 +72,7 @@ const Navbar = () => {
                             status === 'authenticated'
                                 ?
                                 <>
+                                    <Image src={session.user.image} alt="User Avatar" width={32} height={32} className="rounded-full inline-block mr-2" />
                                     <button className="btn btn-outline btn-ghost" onClick={() => signOut({ callbackUrl: "/" })}>Logout</button>
                                 </>
                                 :

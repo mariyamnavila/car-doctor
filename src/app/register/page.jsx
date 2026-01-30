@@ -33,26 +33,6 @@ export default function Register() {
 
                         <RegisterForm></RegisterForm>
 
-                        {/* Social Login */}
-                        <div className="mt-8 text-center">
-                            <p className="text-sm text-gray-500 mb-4">
-                                Or Sign Up with
-                            </p>
-
-                            <div className="flex justify-center gap-4">
-                                <button className="w-10 h-10 rounded-full border flex items-center justify-center hover:bg-gray-100">
-                                    <FaFacebookF className="text-blue-600" />
-                                </button>
-
-                                <button className="w-10 h-10 rounded-full border flex items-center justify-center hover:bg-gray-100">
-                                    <FaLinkedinIn className="text-blue-500" />
-                                </button>
-
-                                <button className="w-10 h-10 rounded-full border flex items-center justify-center hover:bg-gray-100">
-                                    <FcGoogle className="text-xl" />
-                                </button>
-                            </div>
-                        </div>
 
                         {/* Footer */}
                         <p className="text-sm text-center mt-6 text-gray-600">

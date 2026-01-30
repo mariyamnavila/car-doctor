@@ -1,12 +1,9 @@
 'use client';
 import React from 'react';
-import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
-import { FcGoogle } from 'react-icons/fc';
 import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
+import SocialLogin from './SocialLogin';
 const LoginForm = () => {
-    const router = useRouter();
     const handleSubmit = async (e) => {
         e.preventDefault();
         const form = e.target;
@@ -23,26 +20,8 @@ const LoginForm = () => {
                 loading: 'Logging in...',
                 success: 'Login successful!',
                 error: 'Login failed!',
-            }
+            },
         );
-        // try {
-        //     const res = await signIn("credentials", {
-        //         email,
-        //         password,
-        //         callbackUrl: "/",
-        //         redirect: false,
-        //     });
-        //     if (res.ok) {
-        //         toast.success("Login successful!");
-        //         router.push("/");
-        //         form.reset()
-        //     } else {
-        //         toast.error("Login failed! to");
-        //     }
-        // } catch (error) {
-        //     console.log(error);
-        //     toast.error("Login failed!");
-        // }
 
     }
 
@@ -84,21 +63,9 @@ const LoginForm = () => {
                     Or Sign In with
                 </p>
 
-                <div className="flex justify-center gap-4">
-                    <button className="w-10 h-10 rounded-full border flex items-center justify-center hover:bg-gray-100">
-                        <FaFacebookF className="text-blue-600" />
-                    </button>
-
-                    <button className="w-10 h-10 rounded-full border flex items-center justify-center hover:bg-gray-100">
-                        <FaLinkedinIn className="text-blue-500" />
-                    </button>
-
-                    <button className="w-10 h-10 rounded-full border flex items-center justify-center hover:bg-gray-100">
-                        <FcGoogle className="text-xl" />
-                    </button>
-                </div>
+                <SocialLogin></SocialLogin>
             </div>
-        </div>
+        </div >
     );
 };
 

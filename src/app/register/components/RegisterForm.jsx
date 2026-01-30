@@ -1,7 +1,10 @@
 'use client';
 import { registerUser } from '@/app/actions/auth/registerUser';
+import SocialLogin from '@/app/login/components/SocialLogin';
 import { useRouter } from 'next/navigation';
 import React from 'react';
+import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import { FcGoogle } from 'react-icons/fc';
 import { toast } from 'sonner';
 
 
@@ -73,6 +76,14 @@ const RegisterForm = () => {
                     Sign Up
                 </button>
             </form>
+            {/* Social Login */}
+            <div className="mt-8 text-center">
+                <p className="text-sm text-gray-500 mb-4">
+                    Or Sign Up with
+                </p>
+
+                <SocialLogin></SocialLogin>
+            </div>
         </div>
     );
 };
