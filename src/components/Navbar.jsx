@@ -1,11 +1,16 @@
+'use client'
+import { signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
 const Navbar = () => {
+    const { data: session, status } = useSession()
 
-    const navMenu = ()=>{
-        return(
+    console.log(session, status);
+
+    const navMenu = () => {
+        return (
             <>
                 <li>
                     <Link href={'/'}>Home</Link>
@@ -21,6 +26,18 @@ const Navbar = () => {
                 </li>
                 <li>
                     <Link href={'/contact'}>Contact</Link>
+                </li>
+                <li className='md:hidden block'>
+                    {
+                        status === 'authenticated'
+                            ?
+                            <>
+                                <button className="btn btn-outline btn-ghost" onClick={() => signOut({ callbackUrl: "/" })}>Logout</button>
+                            </>
+                            :
+                            <Link href={'/login'} className="btn btn-outline btn-ghost">Login</Link>
+
+                    }
                 </li>
             </>
         )
@@ -50,10 +67,22 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    <div className='mr-4 hidden md:block'>
+                        {
+                            status === 'authenticated'
+                                ?
+                                <>
+                                    <button className="btn btn-outline btn-ghost" onClick={() => signOut({ callbackUrl: "/" })}>Logout</button>
+                                </>
+                                :
+                                <Link href={'/login'} className="btn btn-outline btn-ghost">Login</Link>
+
+                        }
+                    </div>
                     <button className="btn btn-outline btn-primary">Appointment</button>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

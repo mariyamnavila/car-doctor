@@ -1,8 +1,12 @@
 'use client';
 import { registerUser } from '@/app/actions/auth/registerUser';
+import { useRouter } from 'next/navigation';
 import React from 'react';
+import { toast } from 'sonner';
+
 
 const RegisterForm = () => {
+    const router = useRouter()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -11,7 +15,17 @@ const RegisterForm = () => {
         const email = form.email.value;
         const password = form.password.value
 
-        await registerUser({ name, email, password });
+        const result = await registerUser({ name, email, password });
+        console.log(result, "from register form", name, email, password);
+        if (result.insertedId) {
+            toast.success("Registration successful!");
+            router.push("/");
+            form.reset()
+        } else if (!result || !result.insertedId) {
+            toast.error("Registration failed! User may already exist.");
+        } else {
+            toast.error("Registration failed! User may already exist.");
+        }
 
     }
 

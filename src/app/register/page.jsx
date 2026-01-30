@@ -1,8 +1,10 @@
+'use client';
 import Image from "next/image";
 import Link from "next/link";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import RegisterForm from "./components/RegisterForm";
+
 
 export default function Register() {
     return (
@@ -28,7 +30,7 @@ export default function Register() {
                         <h2 className="text-3xl font-bold text-center mb-8">
                             Sign Up
                         </h2>
-                        
+
                         <RegisterForm></RegisterForm>
 
                         {/* Social Login */}
